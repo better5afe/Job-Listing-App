@@ -1,0 +1,16 @@
+@use '../../assets/colors.scss';
+
+.badge {
+	padding: 0.4em 0.6em;
+	margin-right: 0.8em;
+	background: colors.$desaturated-dark-cyan;
+	border-radius: 1rem;
+	font-size: 1.2rem;
+	font-weight: 800;
+	color: colors.$white;
+	text-transform: uppercase;
+
+	&--featured {
+		background: colors.$very-dark-grayish-cyan;
+	}
+}

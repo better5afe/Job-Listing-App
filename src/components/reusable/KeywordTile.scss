@@ -1,0 +1,9 @@
+@use '../../assets/colors.scss';
+
+.keyword-tile {
+	background: colors.$light-cyan;
+	color: colors.$desaturated-dark-cyan;
+	font-weight: 800;
+    padding: .5em;
+    margin: .8em .8em 0 0;
+}

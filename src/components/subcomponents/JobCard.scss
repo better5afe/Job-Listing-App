@@ -1,0 +1,77 @@
+@use '../../assets/colors.scss';
+
+.job-card {
+	position: relative;
+	margin: 3.5em 0;
+	padding: 2.5em 1.5em 1.5em;
+	background: colors.$white;
+	border-radius: 1rem;
+	box-shadow: 0px 6px 20px -13px colors.$desaturated-dark-cyan;
+
+	&--featured {
+		&::before {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 0.6rem;
+			background: colors.$desaturated-dark-cyan;
+			border-top-left-radius: 1rem;
+			border-bottom-left-radius: 1rem;
+			content: '';
+		}
+	}
+
+	&__logo {
+		position: absolute;
+		top: -25px;
+		left: 25px;
+		height: 5rem;
+		width: 5rem;
+	}
+
+	&__overview {
+		display: flex;
+		align-items: center;
+		margin-bottom: 1em;
+
+		&-company {
+			margin-right: 1em;
+			font-size: 1.7rem;
+			color: colors.$desaturated-dark-cyan;
+		}
+
+		&-badges {
+			display: flex;
+		}
+	}
+
+	&__info {
+		padding-bottom: 0.5em;
+		border-bottom: 1px solid colors.$dark-grayish-cyan;
+		text-align: left;
+
+		&-position {
+			margin-bottom: 0.5em;
+			font-size: 1.7rem;
+			color: colors.$very-dark-grayish-cyan;
+		}
+
+		&-details {
+			display: flex;
+			align-items: center;
+			color: colors.$dark-grayish-cyan;
+
+			&--bullet {
+				margin: 0 0.2em;
+				font-size: 2.5rem;
+			}
+		}
+	}
+
+    &__keywords {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: .3em;
+    }
+}
