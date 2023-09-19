@@ -69,9 +69,35 @@
 		}
 	}
 
-    &__keywords {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: .3em;
-    }
+	&__keywords {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 0.3em;
+	}
+}
+
+@media (min-width: 1200px) {
+	.job-card {
+		display: flex;
+		align-items: center;
+		padding: 2.5em;
+		margin: 1.5em 0;
+
+		&__logo {
+			position: static;
+			height: 8rem;
+			width: 8rem;
+			margin-right: 2em;
+		}
+
+		&__info {
+			padding-bottom: 0;
+			border: none;
+		}
+
+		&__keywords {
+			margin-top: 0;
+            margin-left: auto;
+		}
+	}
 }
