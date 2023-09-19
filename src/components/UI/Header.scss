@@ -1,0 +1,17 @@
+@use '../../assets/colors.scss';
+
+.header {
+	height: 156px;
+	width: 100vw;
+	background-color: colors.$desaturated-dark-cyan;
+	background-image: url('../../assets/icons/HeaderMobileBg.svg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+@media (min-width: 992px) {
+	.header {
+		background-image: url('../../assets/icons/HeaderDesktopBg.svg');
+	}
+}

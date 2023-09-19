@@ -1,3 +1,5 @@
+@use './assets/colors.scss';
+
 *,
 *::before,
 *::after {
@@ -11,6 +13,8 @@ html {
 }
 
 body {
+	background: colors.$light-grayish-cyan;
 	font-size: 1.5rem;
 	font-family: 'League Spartan', sans-serif;
 }
+

@@ -1,7 +1,11 @@
-import './Header.scsss'
+import './Header.scss';
 
 const Header = () => {
-    return <header></header>
-}
+	return (
+		<header className='header'>
+			
+		</header>
+	);
+};
 
-export default Header
+export default Header;
