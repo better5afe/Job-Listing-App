@@ -1,4 +1,4 @@
-const getJobs = () => {
+export const getJobs = () => {
 	const jobsArray = [
 		{
 			id: 1,

@@ -1,5 +1,13 @@
-const App = () => {
-  return <h1>App</h1>
-}
+import Header from './components/UI/Header';
+import Main from './components/UI/Main';
 
-export default App
+const App = () => {
+	return (
+		<>
+			<Header />
+			<Main />
+		</>
+	);
+};
+
+export default App;
