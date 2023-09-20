@@ -1,0 +1,66 @@
+@use '../../assets/colors.scss';
+
+.filter {
+	&__btn {
+		height: 38px;
+		width: 38px;
+		background: colors.$white;
+		border: 1px solid colors.$desaturated-dark-cyan;
+		border-top-left-radius: 0.5rem;
+		border-bottom-left-radius: 0.5rem;
+		outline: none;
+		cursor: pointer;
+		transition: background-color 0.3s;
+		z-index: 1;
+
+		&-icon {
+			color: colors.$desaturated-dark-cyan;
+		}
+
+		&:hover {
+			background: colors.$light-grayish-cyan;
+		}
+	}
+
+	&__input {
+		position: relative;
+		width: calc(100% - 38px);
+		padding: 11.4px;
+		background: colors.$white;
+		border: 1px solid colors.$desaturated-dark-cyan;
+		border-left: none;
+		border-top-right-radius: 0.5rem;
+		border-bottom-right-radius: 0.5rem;
+		outline: none;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.3s linear;
+
+		&--open {
+			transform: scaleX(1);
+		}
+	}
+
+	&__list {
+		width: 100%;
+		padding: 1em;
+		margin-top: 1em;
+		background: colors.$white;
+		border-radius: 1rem;
+		box-shadow: 0px 6px 20px -13px colors.$desaturated-dark-cyan;
+		list-style-type: none;
+
+		&-item {
+			margin: 0.5em;
+			padding: 0.5em 0;
+			color: colors.$dark-grayish-cyan;
+			cursor: pointer;
+			transition: background-color 0.3s, color 0.3s;
+
+			&:hover {
+				background-color: colors.$light-cyan;
+				color: colors.$desaturated-dark-cyan;
+			}
+		}
+	}
+}

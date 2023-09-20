@@ -1,26 +1,26 @@
 export interface BadgeProps {
-    text: string,
-    className?: string
+	text: string;
+	className?: string;
 }
 
 export interface KeywordTileProps {
-    keyword: string
+	keyword: string;
 }
 
 export interface WrapperProps {
-    children: React.ReactNode
+	children: React.ReactNode;
+	className?: string;
 }
 
 export interface JobCardProps {
-    id: number,
-    img: any,
-    company: string,
-    isNew: boolean,
-    isFeatured: boolean,
-    position: string,
-    postedAt: string,
-    contract: string,
-    location: string,
-    keywords: string[]
+	id: number;
+	img: any;
+	company: string;
+	isNew: boolean;
+	isFeatured: boolean;
+	position: string;
+	postedAt: string;
+	contract: string;
+	location: string;
+	keywords: string[];
 }
-
