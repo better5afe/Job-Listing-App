@@ -1,9 +1,14 @@
-import { WrapperProps } from '../../models/interfaces'
+import React, { forwardRef } from 'react';
+import { WrapperProps } from '../../models/interfaces';
 
-import './Wrapper.scss'
+import './Wrapper.scss';
 
-const Wrapper: React.FC<WrapperProps> = ({children, className}) => {
-    return <div className={`wrapper wrapper--${className}`}>{children}</div>
-}
+const Wrapper: React.ForwardRefRenderFunction<HTMLDivElement, WrapperProps> = ({ children, className, ...props }, ref) => {
+  return (
+    <div className={`wrapper wrapper--${className}`} ref={ref} {...props}>
+      {children}
+    </div>
+  );
+};
 
-export default Wrapper
+export default forwardRef(Wrapper);

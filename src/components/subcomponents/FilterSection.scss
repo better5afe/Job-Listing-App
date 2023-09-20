@@ -4,13 +4,11 @@
 	&__btn {
 		height: 38px;
 		width: 38px;
-		background: colors.$white;
-		border: 1px solid colors.$desaturated-dark-cyan;
-		border-top-left-radius: 0.5rem;
-		border-bottom-left-radius: 0.5rem;
+		background: colors.$light-grayish-cyan;
+		border: none;
 		outline: none;
 		cursor: pointer;
-		transition: background-color 0.3s;
+		transition: transform 0.3s;
 		z-index: 1;
 
 		&-icon {
@@ -18,7 +16,7 @@
 		}
 
 		&:hover {
-			background: colors.$light-grayish-cyan;
+			transform: scaleY(1.2);
 		}
 	}
 
@@ -28,20 +26,28 @@
 		padding: 11.4px;
 		background: colors.$white;
 		border: 1px solid colors.$desaturated-dark-cyan;
-		border-left: none;
-		border-top-right-radius: 0.5rem;
-		border-bottom-right-radius: 0.5rem;
+		border-radius: 0.5rem;;
 		outline: none;
+		color: colors.$very-dark-grayish-cyan;
 		transform: scaleX(0);
 		transform-origin: left;
 		transition: transform 0.3s linear;
 
+		&:focus {
+			border: 1px solid colors.$dark-grayish-cyan;
+		}
+
 		&--open {
 			transform: scaleX(1);
+		}
+
+		&::placeholder {
+			color: colors.$dark-grayish-cyan;
 		}
 	}
 
 	&__list {
+		display: none;
 		width: 100%;
 		max-height: 300px;
 		padding: 1em;
@@ -51,6 +57,10 @@
 		box-shadow: 0px 6px 20px -13px colors.$desaturated-dark-cyan;
 		list-style-type: none;
 		overflow-y: scroll;
+
+		&--active {
+			display: block;
+		}
 
 		&-item {
 			margin: 0.5em;

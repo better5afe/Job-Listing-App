@@ -10,6 +10,7 @@ export interface KeywordTileProps {
 export interface WrapperProps {
 	children: React.ReactNode;
 	className?: string;
+	ref?: any;
 }
 
 export interface JobCardProps {
