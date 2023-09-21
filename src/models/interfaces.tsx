@@ -55,4 +55,5 @@ export interface ActionInterface {
 
 export interface StateInterface {
 	list: JobObject[];
+	keywords: string[];
 }

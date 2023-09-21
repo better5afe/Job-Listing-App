@@ -23,7 +23,7 @@ const JobList = () => {
 					keywords={[
 						job.role,
 						job.level,
-						...job.languages,
+						...(job.languages || []),
 						...(job.tools || []),
 					]}
 				/>

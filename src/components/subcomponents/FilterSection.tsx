@@ -1,21 +1,9 @@
-import { useState } from 'react';
-
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { StateInterface } from '../../models/interfaces';
 import Wrapper from '../reusable/Wrapper';
 
 import './FilterSection.scss';
-
-const dummyKeywords = [
-	'senior',
-	'react',
-	'html',
-	'css',
-	'mid',
-	'junior',
-	'angular',
-	'vue',
-	'typescript',
-];
 
 const FilterSection = () => {
 	const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -24,6 +12,21 @@ const FilterSection = () => {
 	const [filteredKeywords, setFilteredKeywords] = useState<string[]>([]);
 
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
+
+	const backendJobs = useSelector((state: StateInterface) => state.list);
+
+	const roles = backendJobs.map((job) => job.role);
+	const levels = backendJobs.map((job) => job.level);
+	const languages = backendJobs.flatMap((job) => job.languages);
+	const tools = backendJobs.flatMap((job) => job.tools || []);
+
+	const allKeywords = [...roles, ...levels, ...languages, ...tools].filter(
+		Boolean
+	) as string[];
+
+	const uniqueKeywords = allKeywords.filter((item, index, self) => {
+		return item !== '' && self.indexOf(item) === index;
+	});
 
 	const toggleFilterHandler = () => {
 		setIsFilterOpen(!isFilterOpen);
@@ -39,7 +42,7 @@ const FilterSection = () => {
 	) => {
 		setInputValue(event.target.value);
 
-		const filteredList = dummyKeywords.filter((keyword) =>
+		const filteredList = uniqueKeywords.filter((keyword) =>
 			keyword.toLowerCase().includes(event.target.value.toLowerCase())
 		);
 
@@ -98,7 +101,7 @@ const FilterSection = () => {
 				}
 			>
 				{inputValue === '' &&
-					dummyKeywords.map((keyword) => (
+					uniqueKeywords.map((keyword) => (
 						<li
 							id={`filter-${keyword}`}
 							className='filter__list-item'
