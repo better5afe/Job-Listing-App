@@ -45,6 +45,7 @@ export interface JobObject {
 	position: string;
 	postedAt: string;
 	role: string;
+	tools: string[];
 }
 
 export interface ActionInterface {

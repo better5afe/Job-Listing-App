@@ -1,11 +1,10 @@
 import Wrapper from '../reusable/Wrapper';
 import JobCard from './JobCard';
-import { getJobs } from '../../utils/data';
-
-import './JobList.scss';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { StateInterface } from '../../models/interfaces';
 
 const JobList = () => {
-	const backendJobs = getJobs();
+	const backendJobs = useSelector((state: StateInterface) => state.list);
 
 	return (
 		<Wrapper>
@@ -21,7 +20,12 @@ const JobList = () => {
 					postedAt={job.postedAt}
 					contract={job.contract}
 					location={job.location}
-					keywords={[job.role, job.level, ...job.languages, ...job.tools]}
+					keywords={[
+						job.role,
+						job.level,
+						...job.languages,
+						...(job.tools || []),
+					]}
 				/>
 			))}
 		</Wrapper>
