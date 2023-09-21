@@ -31,3 +31,27 @@ export interface JobCardProps {
 	location: string;
 	keywords: string[];
 }
+
+export interface JobObject {
+	company: string;
+	contract: string;
+	featured: boolean;
+	id: number;
+	languages: string[];
+	level: string;
+	location: string;
+	logo: string;
+	new: boolean;
+	position: string;
+	postedAt: string;
+	role: string;
+}
+
+export interface ActionInterface {
+	type: string;
+	payload?: any;
+}
+
+export interface StateInterface {
+	list: JobObject[];
+}
