@@ -6,6 +6,7 @@ import Main from './components/UI/Main';
 
 const App = () => {
 	const dispatch = useDispatch();
+
 	useEffect(() => {
 		const fetchJobs = async () => {
 			try {
@@ -20,7 +21,6 @@ const App = () => {
 				}
 				const responseData = await response.json();
 				dispatch(fetchData(responseData));
-				
 			} catch (error) {
 				throw new Error(
 					'An error has occured while downloading the data, please try again later.'
