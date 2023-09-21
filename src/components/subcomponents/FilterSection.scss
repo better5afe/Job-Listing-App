@@ -8,16 +8,17 @@
 		border: none;
 		outline: none;
 		cursor: pointer;
-		transition: transform 0.3s;
 		z-index: 1;
 
 		&-icon {
 			color: colors.$desaturated-dark-cyan;
+			transition: color 0.3s;
 		}
 
-		&:hover,
-		&:focus {
-			transform: scaleY(1.2);
+		&:hover, &:focus {
+			.filter__btn-icon {
+				color: colors.$very-dark-grayish-cyan;
+			}
 		}
 	}
 
