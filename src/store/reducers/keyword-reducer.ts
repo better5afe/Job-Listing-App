@@ -13,6 +13,9 @@ export const keywordsListReducer = (
 ) => {
 	switch (action.type) {
 		case ADD_KEYWORD:
+			if (state.includes(action.payload)) {
+				return state;
+			}
 			return [...state, action.payload];
 		case DELETE_ALL:
 			return [];

@@ -1,40 +1,13 @@
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { StateInterface } from '../../models/interfaces';
 import Wrapper from '../reusable/Wrapper';
 import FilterTile from '../reusable/FilterTile';
 
 import './FilterList.scss';
 
-const dummyKeywords = [
-	'senior',
-	'react',
-	'html',
-	'css',
-	'mid',
-	'junior',
-	'angular',
-	'vue',
-	'typescript',
-	// 	'senior',
-	// 	'react',
-	// 	'html',
-	// 	'css',
-	// 	'mid',
-	// 	'junior',
-	// 	'angular',
-	// 	'vue',
-	// 	'typescript',
-	// 	'senior',
-	// 	'react',
-	// 	'html',
-	// 	'css',
-	// 	'mid',
-	// 	'junior',
-	// 	'angular',
-	// 	'vue',
-	// 	'typescript',
-	// ];
-];
-
 const FilterList = () => {
+	const keywordsList = useSelector((state: StateInterface) => state.keywords);
+
 	const deleteFilterHandler = () => {
 		console.log('delete filter');
 	};
@@ -46,7 +19,7 @@ const FilterList = () => {
 	return (
 		<Wrapper className='keywords-box'>
 			<ul className='keywords-box__list'>
-				{dummyKeywords.map((keyword) => (
+				{keywordsList.map((keyword) => (
 					<FilterTile
 						id={keyword}
 						key={keyword}

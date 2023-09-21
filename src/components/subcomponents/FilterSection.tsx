@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addKeyword } from '../../store/actions/keyword-actions';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { StateInterface } from '../../models/interfaces';
 import Wrapper from '../reusable/Wrapper';
@@ -10,6 +12,8 @@ const FilterSection = () => {
 	const [isInputInFocus, setIsInputInFocus] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 	const [filteredKeywords, setFilteredKeywords] = useState<string[]>([]);
+
+	const dispatch = useDispatch();
 
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -49,7 +53,9 @@ const FilterSection = () => {
 		setFilteredKeywords(filteredList);
 	};
 
-	const selectKeywordHandler = () => {
+	const selectKeywordHandler = (event: React.MouseEvent<HTMLElement>) => {
+		const keyword = event.currentTarget.textContent as string;
+		dispatch(addKeyword(keyword));
 		setInputValue('');
 	};
 
