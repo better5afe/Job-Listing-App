@@ -1,0 +1,48 @@
+@use '../../assets/colors.scss';
+
+.keywords-box {
+	&__list {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-wrap: wrap;
+		max-height: 200px;
+		padding: 2em 2em 1.5em;
+		background: colors.$white;
+		border-radius: 0.5rem;
+		box-shadow: 0px 6px 20px -13px colors.$desaturated-dark-cyan;
+		list-style-type: none;
+		overflow-y: scroll;
+	}
+
+	&__btn {
+		position: relative;
+		display: block;
+		margin: 1.5em auto 0 0;
+		padding-bottom: 0.2em;
+		background: transparent;
+		border: none;
+		outline: none;
+		font-size: 1.8rem;
+		color: colors.$desaturated-dark-cyan;
+		cursor: pointer;
+
+		&::before {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 1px;
+			width: 100%;
+			background: colors.$desaturated-dark-cyan;
+			content: '';
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: transform 0.3s;
+		}
+
+		&:hover::before,
+		&:focus::before {
+			transform: scaleX(1);
+		}
+	}
+}

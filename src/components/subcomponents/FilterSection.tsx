@@ -1,4 +1,6 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState } from 'react';
+
+import { useEffect, useRef } from 'react';
 import Wrapper from '../reusable/Wrapper';
 
 import './FilterSection.scss';
@@ -25,7 +27,7 @@ const FilterSection = () => {
 
 	const toggleFilterHandler = () => {
 		setIsFilterOpen(!isFilterOpen);
-		setIsInputInFocus(false)
+		setIsInputInFocus(false);
 	};
 
 	const focusHandler = () => {
@@ -45,13 +47,11 @@ const FilterSection = () => {
 	};
 
 	const selectKeywordHandler = () => {
-		console.log('object');
-		setFilteredKeywords([]);
 		setInputValue('');
 	};
 
 	useEffect(() => {
-		const blur = (event: MouseEvent) => {
+		const blurHandler = (event: MouseEvent) => {
 			if (
 				wrapperRef.current &&
 				!wrapperRef.current.contains(event.target as Node)
@@ -62,7 +62,7 @@ const FilterSection = () => {
 			}
 		};
 
-		window.addEventListener('click', blur);
+		window.addEventListener('click', blurHandler);
 	}, []);
 
 	return (
@@ -120,7 +120,7 @@ const FilterSection = () => {
 						</li>
 					))}
 				{filteredKeywords.length === 0 && inputValue !== '' && (
-					<p>No results found</p>
+					<p className='filter__list-error'>No results found</p>
 				)}
 			</ul>
 		</Wrapper>

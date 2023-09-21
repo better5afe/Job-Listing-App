@@ -18,7 +18,8 @@ body {
 
 body,
 input,
-input::placeholder {
+input::placeholder,
+button {
 	font-size: 1.5rem;
 	font-family: 'League Spartan', sans-serif;
 }

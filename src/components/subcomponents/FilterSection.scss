@@ -26,7 +26,7 @@
 		padding: 11.4px;
 		background: colors.$white;
 		border: 1px solid colors.$desaturated-dark-cyan;
-		border-radius: 0.5rem;;
+		border-radius: 0.5rem;
 		outline: none;
 		color: colors.$very-dark-grayish-cyan;
 		transform: scaleX(0);
@@ -74,6 +74,10 @@
 				color: colors.$desaturated-dark-cyan;
 			}
 		}
+
+		&-error {
+			color: colors.$dark-grayish-cyan;
+		}
 	}
 }
 
@@ -83,12 +87,13 @@
 
 ::-webkit-scrollbar-track {
 	background: colors.$white;
-	border-top-right-radius: 0.5rem;
-	border-bottom-right-radius: 0.5rem;
+	border-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb {
 	background: colors.$desaturated-dark-cyan;
+
+	border-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {

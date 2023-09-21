@@ -4,9 +4,17 @@
 	padding: 0.5em;
 	margin: 0.8em 0.8em 0 0;
 	background: colors.$light-cyan;
-    border-radius: .5rem;
+	border-radius: 0.5rem;
 	font-weight: 800;
 	color: colors.$desaturated-dark-cyan;
+
+	&--filter-keywords {
+		&__text {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			margin: 0;
+		}
+	}
 }
 
 @media (min-width: 1200px) {

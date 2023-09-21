@@ -1,0 +1,27 @@
+@use '../../assets/colors.scss';
+
+.filter-keywords {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 1em .5em 0;
+
+	&__btn {
+		padding: 0.75rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: colors.$desaturated-dark-cyan;
+		border: none;
+		border-top-right-radius: 0.5rem;
+		border-bottom-right-radius: 0.5rem;
+		outline: none;
+		cursor: pointer;
+		transition: background-color 0.3s;
+
+		&:hover,
+		&:focus {
+			background: colors.$very-dark-grayish-cyan;
+		}
+	}
+}

@@ -5,12 +5,18 @@ export interface BadgeProps {
 
 export interface KeywordTileProps {
 	keyword: string;
+	className?: string;
+}
+
+export interface FilterTileProps {
+	text: string;
+	id: string;
+	onDeleteKeyword: () => void;
 }
 
 export interface WrapperProps {
 	children: React.ReactNode;
 	className?: string;
-	ref?: any;
 }
 
 export interface JobCardProps {
