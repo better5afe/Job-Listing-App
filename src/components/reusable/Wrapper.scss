@@ -1,6 +1,7 @@
 .wrapper {
-	width: 100%;
-	padding: 1.5em;
+	width: 93vw;
+	margin: 0 auto;
+	padding: 1.5em 0;
 	text-align: center;
 
 	&--filter {
@@ -8,6 +9,11 @@
 		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
+	}
+
+	&--keywords-box {
+		position: relative;
+		padding-top: 120px;
 	}
 }
 

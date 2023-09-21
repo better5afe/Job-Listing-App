@@ -13,25 +13,26 @@ const dummyKeywords = [
 	'angular',
 	'vue',
 	'typescript',
-	'senior',
-	'react',
-	'html',
-	'css',
-	'mid',
-	'junior',
-	'angular',
-	'vue',
-	'typescript',
-	'senior',
-	'react',
-	'html',
-	'css',
-	'mid',
-	'junior',
-	'angular',
-	'vue',
-	'typescript',
-];
+// 	'senior',
+// 	'react',
+// 	'html',
+// 	'css',
+// 	'mid',
+// 	'junior',
+// 	'angular',
+// 	'vue',
+// 	'typescript',
+// 	'senior',
+// 	'react',
+// 	'html',
+// 	'css',
+// 	'mid',
+// 	'junior',
+// 	'angular',
+// 	'vue',
+// 	'typescript',
+// ];
+]
 
 const FilterList = () => {
 	const deleteFilterHandler = () => {
@@ -39,7 +40,7 @@ const FilterList = () => {
 	};
 
 	return (
-		<Wrapper>
+		<Wrapper className='keywords-box'>
 			<ul className='keywords-box__list'>
 				{dummyKeywords.map((keyword) => (
 					<FilterTile
