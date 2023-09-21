@@ -13,30 +13,34 @@ const dummyKeywords = [
 	'angular',
 	'vue',
 	'typescript',
-// 	'senior',
-// 	'react',
-// 	'html',
-// 	'css',
-// 	'mid',
-// 	'junior',
-// 	'angular',
-// 	'vue',
-// 	'typescript',
-// 	'senior',
-// 	'react',
-// 	'html',
-// 	'css',
-// 	'mid',
-// 	'junior',
-// 	'angular',
-// 	'vue',
-// 	'typescript',
-// ];
-]
+	// 	'senior',
+	// 	'react',
+	// 	'html',
+	// 	'css',
+	// 	'mid',
+	// 	'junior',
+	// 	'angular',
+	// 	'vue',
+	// 	'typescript',
+	// 	'senior',
+	// 	'react',
+	// 	'html',
+	// 	'css',
+	// 	'mid',
+	// 	'junior',
+	// 	'angular',
+	// 	'vue',
+	// 	'typescript',
+	// ];
+];
 
 const FilterList = () => {
 	const deleteFilterHandler = () => {
 		console.log('delete filter');
+	};
+
+	const clearFilters = () => {
+		console.log('clear filters');
 	};
 
 	return (
@@ -51,7 +55,9 @@ const FilterList = () => {
 					/>
 				))}
 			</ul>
-			<button className='keywords-box__btn'>Clear filters</button>
+			<button className='keywords-box__btn' onClick={clearFilters}>
+				Clear filters
+			</button>
 		</Wrapper>
 	);
 };
