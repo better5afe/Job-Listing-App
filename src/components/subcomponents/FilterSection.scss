@@ -15,7 +15,8 @@
 			color: colors.$desaturated-dark-cyan;
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			transform: scaleY(1.2);
 		}
 	}
@@ -35,6 +36,7 @@
 
 		&:focus {
 			border: 1px solid colors.$dark-grayish-cyan;
+			transform: scaleX(1);
 		}
 
 		&--open {
