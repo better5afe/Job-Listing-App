@@ -17,6 +17,8 @@ export const keywordsListReducer = (
 				return state;
 			}
 			return [...state, action.payload];
+		case DELETE_KEYWORD:
+			return state.filter((id) => id !== action.payload);
 		case DELETE_ALL:
 			return [];
 		default:

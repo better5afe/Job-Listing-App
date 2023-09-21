@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { StateInterface } from '../../models/interfaces';
+import { useDispatch } from 'react-redux';
+import { deleteAll, deleteKeyword } from '../../store/actions/keyword-actions';
 import Wrapper from '../reusable/Wrapper';
 import FilterTile from '../reusable/FilterTile';
 
@@ -8,12 +10,14 @@ import './FilterList.scss';
 const FilterList = () => {
 	const keywordsList = useSelector((state: StateInterface) => state.keywords);
 
-	const deleteFilterHandler = () => {
-		console.log('delete filter');
+	const dispatch = useDispatch();
+
+	const deleteFilterHandler = (id: string) => {
+		dispatch(deleteKeyword(id));
 	};
 
 	const clearFilters = () => {
-		console.log('clear filters');
+		dispatch(deleteAll());
 	};
 
 	return (

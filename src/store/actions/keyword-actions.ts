@@ -9,10 +9,10 @@ export const addKeyword = (keyword: string) => {
 	};
 };
 
-export const deleteKeyword = (keyword: string) => {
+export const deleteKeyword = (id: string) => {
 	return {
 		type: DELETE_KEYWORD,
-		payload: keyword,
+		payload: id,
 	};
 };
 

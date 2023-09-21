@@ -11,7 +11,7 @@ export interface KeywordTileProps {
 export interface FilterTileProps {
 	text: string;
 	id: string;
-	onDeleteKeyword: () => void;
+	onDeleteKeyword: (id: string) => void;
 }
 
 export interface WrapperProps {

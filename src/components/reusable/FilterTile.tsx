@@ -8,10 +8,17 @@ const FilterTile: React.FC<FilterTileProps> = ({
 	id,
 	onDeleteKeyword,
 }) => {
+	const deleteKeywordHandler = () => {
+		onDeleteKeyword(id);
+	};
+
 	return (
 		<div className='filter-keywords'>
-			<KeywordTile className='filter-keywords__text' keyword={text}></KeywordTile>
-			<button className='filter-keywords__btn' onClick={onDeleteKeyword}>
+			<KeywordTile
+				className='filter-keywords__text'
+				keyword={text}
+			></KeywordTile>
+			<button className='filter-keywords__btn' onClick={deleteKeywordHandler}>
 				<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'>
 					<path
 						fill='#FFF'
