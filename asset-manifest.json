@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Job-Listing-App/static/css/main.ddacfa37.css",
+    "main.js": "/Job-Listing-App/static/js/main.e00ac75c.js",
+    "static/media/HeaderDesktopBg.svg": "/Job-Listing-App/static/media/HeaderDesktopBg.752d0faf14c00c6fb55f.svg",
+    "index.html": "/Job-Listing-App/index.html",
+    "static/media/HeaderMobileBg.svg": "/Job-Listing-App/static/media/HeaderMobileBg.23ae07495bb14444b9f3.svg",
+    "main.ddacfa37.css.map": "/Job-Listing-App/static/css/main.ddacfa37.css.map",
+    "main.e00ac75c.js.map": "/Job-Listing-App/static/js/main.e00ac75c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ddacfa37.css",
+    "static/js/main.e00ac75c.js"
+  ]
+}
