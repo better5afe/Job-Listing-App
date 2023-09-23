@@ -19,6 +19,12 @@ export interface WrapperProps {
 	className?: string;
 }
 
+export interface CardProps {
+	children: React.ReactNode;
+	className: string;
+	id: string;
+}
+
 export interface JobCardProps {
 	id: number;
 	img: any;

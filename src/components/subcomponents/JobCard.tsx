@@ -1,4 +1,5 @@
 import { JobCardProps } from '../../models/interfaces';
+import Card from '../reusable/Card';
 import Badge from '../reusable/Badge';
 import KeywordTile from '../reusable/KeywordTile';
 
@@ -17,36 +18,36 @@ const JobCard: React.FC<JobCardProps> = ({
 	keywords,
 }) => {
 	return (
-		<div
+		<Card
 			id={id.toString()}
-			className={isFeatured ? 'job-card job-card--featured' : 'job-card'}
+			className={isFeatured ? 'job job--featured' : 'job'}
 		>
-			<img src={img} alt="Company's logo" className='job-card__logo' />
+			<img src={img} alt="Company's logo" className='job__logo' />
 			<div>
-				<div className='job-card__overview'>
-					<h2 className='job-card__overview-company'>{company}</h2>
-					<div className='job-card__overview-badges'>
+				<div className='job__overview'>
+					<h2 className='job__overview-company'>{company}</h2>
+					<div className='job__overview-badges'>
 						{isNew && <Badge text='new!' />}
 						{isFeatured && <Badge text='featured' className='featured' />}
 					</div>
 				</div>
-				<div className='job-card__info'>
-					<h3 className='job-card__info-position'>{position}</h3>
-					<div className='job-card__info-details'>
+				<div className='job__info'>
+					<h3 className='job__info-position'>{position}</h3>
+					<div className='job__info-details'>
 						<p>{postedAt}</p>
-						<span className='job-card__info-details--bullet'>∙</span>
+						<span className='job__info-details--bullet'>∙</span>
 						<p>{contract}</p>
-						<span className='job-card__info-details--bullet'>∙</span>
+						<span className='job__info-details--bullet'>∙</span>
 						<p>{location}</p>
 					</div>
 				</div>
 			</div>
-			<div className='job-card__keywords'>
+			<div className='job__keywords'>
 				{keywords.map((keyword) => (
 					<KeywordTile key={keyword} keyword={keyword} />
 				))}
 			</div>
-		</div>
+		</Card>
 	);
 };
 
