@@ -12,6 +12,10 @@ const FilterSection = () => {
 	const [isInputInFocus, setIsInputInFocus] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 	const [filteredKeywords, setFilteredKeywords] = useState<string[]>([]);
+	const [isError, setIsError] = useState({
+		error: false,
+		errorMessage: '',
+	});
 
 	const dispatch = useDispatch();
 
@@ -37,10 +41,6 @@ const FilterSection = () => {
 		setIsInputInFocus(false);
 	};
 
-	const focusHandler = () => {
-		setIsInputInFocus(true);
-	};
-
 	const filterKeywordsHandler = (
 		event: React.ChangeEvent<HTMLInputElement>
 	) => {
@@ -53,10 +53,64 @@ const FilterSection = () => {
 		setFilteredKeywords(filteredList);
 	};
 
+	const selectWithEnter = (event: React.KeyboardEvent<HTMLElement>) => {
+		if (event.key !== 'Enter') {
+			return;
+		}
+
+		console.log(filteredKeywords);
+
+		if (event.target instanceof HTMLInputElement) {
+			const inputValue = event.target.value;
+			const lowercaseInputValue = inputValue.toLowerCase();
+
+			if (inputValue.trim().length === 0) {
+				setIsError({
+					error: true,
+					errorMessage: 'No value provided',
+				});
+			}
+
+			let matchingKeyword = uniqueKeywords.find(
+				(keyword) => keyword.toLowerCase() === lowercaseInputValue
+			);
+
+			if (!matchingKeyword) {
+				setIsError({
+					error: true,
+					errorMessage: 'No matching value found',
+				});
+				return;
+			}
+
+			dispatch(addKeyword(matchingKeyword));
+			setInputValue('');
+			setIsError({
+				error: false,
+				errorMessage: '',
+			});
+			setFilteredKeywords([]);
+		}
+
+		if (event.target instanceof HTMLLIElement) {
+			dispatch(addKeyword(event.currentTarget.textContent as string));
+			setInputValue('');
+			setIsError({
+				error: false,
+				errorMessage: '',
+			});
+			setFilteredKeywords([]);
+		}
+	};
+
 	const selectKeywordHandler = (event: React.MouseEvent<HTMLElement>) => {
 		const keyword = event.currentTarget.textContent as string;
 		dispatch(addKeyword(keyword));
 		setInputValue('');
+		setIsError({
+			error: false,
+			errorMessage: '',
+		});
 	};
 
 	useEffect(() => {
@@ -96,10 +150,19 @@ const FilterSection = () => {
 					isFilterOpen ? 'filter__input filter__input--open' : 'filter__input'
 				}
 				placeholder='Search by a keyword'
-				onFocus={focusHandler}
+				onFocus={() => setIsInputInFocus(true)}
+				onBlur={() => setIsFilterOpen(true)}
 				onChange={filterKeywordsHandler}
+				onKeyDown={selectWithEnter}
 				value={inputValue}
 			/>
+			<p
+				className={
+					isError ? 'filter__error filter__error--visible' : 'filter__error'
+				}
+			>
+				{isError.errorMessage}
+			</p>
 			<ul
 				id='filter-list'
 				className={
@@ -107,23 +170,37 @@ const FilterSection = () => {
 				}
 			>
 				{inputValue === '' &&
-					uniqueKeywords.map((keyword) => (
+					uniqueKeywords.map((keyword, index, self) => (
 						<li
 							id={`filter-${keyword}`}
 							className='filter__list-item'
 							key={keyword}
 							onClick={selectKeywordHandler}
+							onKeyDown={selectWithEnter}
+							onBlur={() => {
+								if (index === self.length - 1) {
+									setIsInputInFocus(false);
+								}
+							}}
+							tabIndex={0}
 						>
 							{keyword}
 						</li>
 					))}
 				{filteredKeywords.length > 0 &&
-					filteredKeywords.map((keyword) => (
+					filteredKeywords.map((keyword, index, self) => (
 						<li
 							id={`filter-${keyword}`}
 							className='filter__list-item'
 							key={keyword}
 							onClick={selectKeywordHandler}
+							onKeyDown={selectWithEnter}
+							onBlur={() => {
+								if (index === self.length - 1) {
+									setIsInputInFocus(false);
+								}
+							}}
+							tabIndex={0}
 						>
 							{keyword}
 						</li>

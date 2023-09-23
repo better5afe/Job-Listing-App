@@ -15,7 +15,8 @@
 			transition: color 0.3s;
 		}
 
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			.filter__btn-icon {
 				color: colors.$very-dark-grayish-cyan;
 			}
@@ -44,8 +45,22 @@
 			transform: scaleX(1);
 		}
 
+		&--error {
+			border-color: colors.$form-error;
+		}
+
 		&::placeholder {
 			color: colors.$dark-grayish-cyan;
+		}
+	}
+
+	&__error {
+		margin-top: 0.5em;
+		color: colors.$form-error;
+		opacity: 0;
+
+		&--visible {
+			opacity: 1;
 		}
 	}
 
@@ -68,11 +83,13 @@
 		&-item {
 			margin: 0.5em;
 			padding: 0.5em 0;
+			outline: none;
 			color: colors.$dark-grayish-cyan;
 			cursor: pointer;
 			transition: background-color 0.3s, color 0.3s;
 
-			&:hover {
+			&:hover,
+			&:focus {
 				background-color: colors.$light-cyan;
 				color: colors.$desaturated-dark-cyan;
 			}
