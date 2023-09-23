@@ -1,0 +1,11 @@
+@use '../../assets/colors.scss';
+
+.main {
+	text-align: center;
+	&__error {
+		margin-top: 3em;
+		padding: 0 1em;
+		color: colors.$form-error;
+		line-height: 1.5;
+	}
+}

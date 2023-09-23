@@ -9,6 +9,7 @@ import './JobList.scss';
 const JobList = () => {
 	const backendJobs = useSelector((state: StateInterface) => state.list);
 	const keywords = useSelector((state: StateInterface) => state.keywords);
+	
 
 	const allJobs = backendJobs.map((job) => (
 		<JobCard

@@ -25,6 +25,14 @@ export interface CardProps {
 	id?: string;
 }
 
+interface ErrorObject {
+	message: string;
+}
+
+export interface MainProps {
+	isError: ErrorObject;
+}
+
 export interface JobCardProps {
 	id: number;
 	img: any;
