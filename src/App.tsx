@@ -8,26 +8,28 @@ const App = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		const fetchJobs = async () => {
-			try {
-				const response = await fetch(
-					'https://job-listing-e987f-default-rtdb.europe-west1.firebasedatabase.app/jobs.json'
-				);
+		setTimeout(() => {
+			const fetchJobs = async () => {
+				try {
+					const response = await fetch(
+						'https://job-listing-e987f-default-rtdb.europe-west1.firebasedatabase.app/jobs.json'
+					);
 
-				if (!response.ok) {
+					if (!response.ok) {
+						throw new Error(
+							'An error has occured while downloading the data, please try again later.'
+						);
+					}
+					const responseData = await response.json();
+					dispatch(fetchData(responseData));
+				} catch (error) {
 					throw new Error(
 						'An error has occured while downloading the data, please try again later.'
 					);
 				}
-				const responseData = await response.json();
-				dispatch(fetchData(responseData));
-			} catch (error) {
-				throw new Error(
-					'An error has occured while downloading the data, please try again later.'
-				);
-			}
-		};
-		fetchJobs();
+			};
+			fetchJobs();
+		}, 1800);
 	}, []);
 
 	return (

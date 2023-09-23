@@ -1,7 +1,10 @@
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { StateInterface } from '../../models/interfaces';
 import Wrapper from '../reusable/Wrapper';
+import LoadingCards from './LoadingCards';
 import JobCard from './JobCard';
+
+import './JobList.scss';
 
 const JobList = () => {
 	const backendJobs = useSelector((state: StateInterface) => state.list);
@@ -36,7 +39,15 @@ const JobList = () => {
 		);
 	});
 
-	return <Wrapper>{keywords.length >= 1 ? filteredJobs : allJobs}</Wrapper>;
+	return (
+		<Wrapper>
+			{backendJobs.length === 0 && <LoadingCards />}
+			{keywords.length >= 1 ? filteredJobs : allJobs}
+			{keywords.length >= 1 && filteredJobs.length === 0 && (
+				<p className='list__error'>No results</p>
+			)}
+		</Wrapper>
+	);
 };
 
 export default JobList;

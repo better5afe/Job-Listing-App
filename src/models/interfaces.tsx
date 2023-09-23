@@ -20,9 +20,9 @@ export interface WrapperProps {
 }
 
 export interface CardProps {
-	children: React.ReactNode;
+	children?: React.ReactNode;
 	className: string;
-	id: string;
+	id?: string;
 }
 
 export interface JobCardProps {

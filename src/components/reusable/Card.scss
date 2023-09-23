@@ -6,15 +6,51 @@
 	padding: 2.5em 1.5em 1.5em;
 	background: colors.$white;
 	border-radius: 1rem;
+	outline: none;
 	box-shadow: 0px 6px 20px -13px colors.$desaturated-dark-cyan;
+	overflow: hidden;
 
-    &--job {
-        transition: transform .3s;
-    }
+	&--job {
+		transition: transform 0.3s;
+	}
 
-    &--job:hover {
-        transform: scale(1.02);
-    }
+	&--job:hover,
+	&--job:focus {
+		transform: scale(1.01);
+	}
+
+	&--loading {
+		height: 244px;
+
+		&::before {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 10%;
+			background: colors.$grayish-cyan;
+			content: '';
+			animation: loading 1.2s linear infinite;
+		}
+	}
+}
+
+@keyframes loading {
+	from {
+		transform: translateX(-100%) skewX(-20deg);
+	}
+
+	to {
+		transform: translateX(1000%) skewX(-20deg);
+	}
+}
+
+@media (min-width: 576px) {
+	.card {
+		&--loading {
+			height: 209px;
+		}
+	}
 }
 
 @media (min-width: 1200px) {
@@ -23,5 +59,9 @@
 		align-items: center;
 		padding: 2.5em;
 		margin: 1.5em 0;
+
+		&--loading {
+			height: 164px;
+		}
 	}
 }
