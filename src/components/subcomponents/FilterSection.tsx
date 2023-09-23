@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addKeyword } from '../../store/actions/keyword-actions';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { addKeyword } from '../../store/actions/keyword-actions';
 import { StateInterface } from '../../models/interfaces';
 import Wrapper from '../reusable/Wrapper';
 
@@ -17,9 +17,9 @@ const FilterSection = () => {
 		errorMessage: '',
 	});
 
-	const dispatch = useDispatch();
-
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
+
+	const dispatch = useDispatch();
 
 	const backendJobs = useSelector((state: StateInterface) => state.list);
 
@@ -57,8 +57,6 @@ const FilterSection = () => {
 		if (event.key !== 'Enter') {
 			return;
 		}
-
-		console.log(filteredKeywords);
 
 		if (event.target instanceof HTMLInputElement) {
 			const inputValue = event.target.value;
